@@ -5,6 +5,7 @@ export interface navState {
 	origin: string
 	destination: string
 	travelTimeInfo: number
+	nav?: string
 }
 
 const initialState: navState = {
@@ -31,3 +32,7 @@ export const NavSlice = createSlice({
 
 export const {setOrigin, setDestination, setTravelTimeInformation} =
 	NavSlice.actions
+
+//Selectors
+
+export const selectOrigin = (state: navState) => state.nav.origin
