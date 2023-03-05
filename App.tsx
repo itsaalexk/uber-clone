@@ -7,7 +7,7 @@ export default function App() {
 	return (
 		<Provider store={store}>
 			<View style={styles.container}>
-				<Text style={styles.text}>Demo de React Native</Text>
+				<Text style={styles.text}>Demo</Text>
 				<StatusBar style="auto" />
 			</View>
 		</Provider>
