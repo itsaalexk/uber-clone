@@ -1,29 +1,21 @@
+import {NavigationContainer} from '@react-navigation/native'
 import {StatusBar} from 'expo-status-bar'
-import {StyleSheet, Text, View} from 'react-native'
-import {Provider} from 'react-redux'
-import {store} from './store/store'
+import {Text, View} from 'react-native'
+import {TailwindProvider} from 'tailwind-rn'
+import {CustomerScreen} from './screens/CustomerScreen'
+import utilities from './tailwind.json'
 
 export default function App() {
 	return (
-		<Provider store={store}>
-			<View style={styles.container}>
-				<Text style={styles.text}>Demo</Text>
-				<StatusBar style="auto" />
-			</View>
-		</Provider>
+		//@ts-ignore - Type '{ children: Element; utilities: {}; }' is not assignable to type 'IntrinsicAttributes & Props'.
+		<TailwindProvider utilities={utilities}>
+			<NavigationContainer>
+				<View>
+					<Text>Hola</Text>
+					<CustomerScreen />
+					<StatusBar style="auto" />
+				</View>
+			</NavigationContainer>
+		</TailwindProvider>
 	)
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: 'black',
-		alignItems: 'center',
-		justifyContent: 'center'
-	},
-	text: {
-		color: 'white',
-		fontFamily: 'consolas',
-		fontSize: 20
-	}
-})
